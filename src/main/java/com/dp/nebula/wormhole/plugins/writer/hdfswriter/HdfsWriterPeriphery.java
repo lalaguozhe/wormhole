@@ -96,6 +96,9 @@ public class HdfsWriterPeriphery implements IWriterPeriphery {
 					} catch (IOException e) {
 						logger.error("add hive table partition failed:"
 								+ e.getMessage());
+                      throw new WormholeException(
+                              "add hive table partition failed ",
+                              JobStatus.POST_WRITE_FAILED.getStatus());
 					}
 				}
 			}
